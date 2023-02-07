@@ -14,85 +14,85 @@ var student =  [
 
     {
         id : 1,
-        name : 'Name1',
+        name : 'Student1',
         obMarks : 700,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     },
 
     {
         id : 2,
-        name : 'Name2',
-        obMarks : 600,
+        name : 'Student2',
+        obMarks : 995,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     },
 
     {
         id : 3,
-        name : 'Name3',
+        name : 'Student3',
         obMarks : 555,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     },
 
     {
         id : 4,
-        name : 'Name4',
+        name : 'Student4',
         obMarks : 455,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     },
 
     {
         id : 5,
-        name : 'Name5',
+        name : 'Student5',
         obMarks : 855,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     },
     {
         id : 6,
-        name : 'Name6',
+        name : 'Student6',
         obMarks : 355,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     },
 
     {
         id : 7,
-        name : 'Name7',
-        obMarks : 975,
+        name : 'Student7',
+        obMarks : 600,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     },
     {
         id : 8,
-        name : 'Name8',
+        name : 'Student8',
         obMarks : 232,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     },
     {
         id : 9,
-        name : 'Name9',
+        name : 'Student9',
         obMarks : 999,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     },
     {
         id : 10,
-        name : 'Name10',
+        name : 'Student10',
         obMarks : 132,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     },
     {
         id : 11,
-        name : 'Name11',
+        name : 'Student11',
         obMarks : 336,
         tMarks : 1100,
-        status : 'pass'
+        status : ''
     }
 
 ];
@@ -196,6 +196,7 @@ findMinMax(student);
                        return value;
                  }
                  else {
+                    value.status = 'Pass';
                     return value;
                  }
         });
@@ -203,23 +204,26 @@ findMinMax(student);
         console.log('new Array');
         console.log(newArray);
 
-        // onLoadData(newArray);
-     
+        onLoadData(newArray);
      
      }
 
-     checkData(student);
+    //  checkData(student);
 
 
 
 
 function onLoadData(newArray) {
     document.getElementById('body').innerHTML = createTable(newArray);
+    console.log('This is new array');
+    console.log(newArray);
  }
 
-//  function onLoadDataOld(student) {
-//     document.getElementById('body').innerHTML = createTable(student);
-//  }
+ function oldData(student) {
+    document.getElementById('body').innerHTML = createTable(student);
+    console.log('This is old array');
+    console.log(student);
+ }
  
  
  function createTable(student) {
