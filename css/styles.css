@@ -1,0 +1,39 @@
+.body-main {
+    background-color: lightblue;
+}
+
+.heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
+    margin-top: 2rem;
+    color: white;
+}
+
+.row {
+    /* text-align: center; */
+    margin-bottom: 2rem;
+    margin-left: 35rem;
+}
+
+.btn-row {
+    float: right;
+}
+
+.input {
+    box-shadow: white;
+    height: 1.5rem;
+    margin-left: 1rem;
+    
+}
+
+.btn {
+    padding: .5rem;
+    /* align-items: right; */
+    /* color: white;
+    background-color: green; */
+}
+
+.body {
+ text-align: center;
+}
