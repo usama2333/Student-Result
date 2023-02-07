@@ -3,9 +3,12 @@
 var min = 3333333333;
 var secondMin = 333333333;
 var thirdMin = 3333333333;
+var fourthMin = 3333333333;
+
 var max = 0;
 var secondMax = 0;
 var thirdMax = 0;
+var fourthMax = 0;
 
 
 var newArray = [];
@@ -17,7 +20,7 @@ var student =  [
         name : 'Student1',
         obMarks : 700,
         tMarks : 1100,
-        status : ''
+        status : 'pass'
     },
 
     {
@@ -25,7 +28,7 @@ var student =  [
         name : 'Student2',
         obMarks : 995,
         tMarks : 1100,
-        status : ''
+        status : 'fail'
     },
 
     {
@@ -33,15 +36,15 @@ var student =  [
         name : 'Student3',
         obMarks : 555,
         tMarks : 1100,
-        status : ''
+        status : 'fail'
     },
 
     {
         id : 4,
         name : 'Student4',
-        obMarks : 455,
+        obMarks : 601,
         tMarks : 1100,
-        status : ''
+        status : 'pass'
     },
 
     {
@@ -49,14 +52,14 @@ var student =  [
         name : 'Student5',
         obMarks : 855,
         tMarks : 1100,
-        status : ''
+        status : 'pass'
     },
     {
         id : 6,
         name : 'Student6',
-        obMarks : 355,
+        obMarks : 235,
         tMarks : 1100,
-        status : ''
+        status : 'pass'
     },
 
     {
@@ -64,35 +67,35 @@ var student =  [
         name : 'Student7',
         obMarks : 600,
         tMarks : 1100,
-        status : ''
+        status : 'fail'
     },
     {
         id : 8,
         name : 'Student8',
-        obMarks : 232,
+        obMarks : 832,
         tMarks : 1100,
-        status : ''
+        status : 'pass'
     },
     {
         id : 9,
         name : 'Student9',
         obMarks : 999,
         tMarks : 1100,
-        status : ''
+        status : 'pass'
     },
     {
         id : 10,
         name : 'Student10',
         obMarks : 132,
         tMarks : 1100,
-        status : ''
+        status : 'fail'
     },
     {
         id : 11,
         name : 'Student11',
         obMarks : 336,
         tMarks : 1100,
-        status : ''
+        status : 'fail'
     }
 
 ];
@@ -120,6 +123,7 @@ function findMinMax (student) {
      for (let i = 0; i < array.length; i++) {
          
          if(array[i] > max) {
+            fourthMax = thirdMax;
              thirdMax= secondMax;
              secondMax = max;
              max = array[i];
@@ -130,11 +134,17 @@ function findMinMax (student) {
          else if (array[i] > thirdMax && array[i] < secondMax) {
              thirdMax = array[i];
          }
+         else if (array[i] > fourthMax && array[i] < thirdMax) {
+            fourthMax = array[i];
+        }
      }
      
+     console.log('Finding Max numbers');
+
      console.log(max);
      console.log(secondMax);
      console.log(thirdMax);
+     console.log(fourthMax);
     
     
     
@@ -146,6 +156,7 @@ function findMinMax (student) {
      for (let i = 0; i < array.length; i++) {
          
          if(array[i] < min) {
+            fourthMin = thirdMin;
             thirdMin= secondMin;
              secondMin = min;
              min = array[i];
@@ -156,11 +167,17 @@ function findMinMax (student) {
          else if (array[i] < thirdMin && array[i] > secondMin) {
             thirdMin = array[i];
          }
+         else if (array[i] < fourthMin && array[i] > thirdMax) {
+            fourthMin = array[i];
+        }
      }
      
+     console.log('Finding Minimum numbers');
+
      console.log(min);
      console.log(secondMin);
      console.log(thirdMin);
+     console.log(fourthMin);
 
 }
 
@@ -187,11 +204,11 @@ findMinMax(student);
 
         newArray = student.filter((value) => {
                 // console.log(value.obMarks === max);
-                if(value.obMarks === max || value.obMarks === secondMax || value.obMarks === thirdMax){
+                if((value.obMarks === max && value.status === 'pass') || (value.obMarks === secondMax && value.status === 'pass')  || (value.obMarks === thirdMax && value.status === 'pass') || (value.obMarks === fourthMax && value.status === 'pass')){
                        value.status = 'Top Achievers';
                        return value; 
             
-                    }else if(value.obMarks === min || value.obMarks === secondMin || value.obMarks === thirdMin) {
+                    }else if((value.obMarks === min && value.status === 'fail') || (value.obMarks === secondMin && value.status === 'fail') || (value.obMarks === thirdMax && value.status === 'fail') || (value.obMarks === fourthMin && value.status === 'fail')) {
                         value.status = 'Fail';
                        return value;
                  }
@@ -214,7 +231,7 @@ findMinMax(student);
 
 
 function onLoadData(newArray) {
-    document.getElementById('body').innerHTML = createTable(newArray);
+    document.getElementById('pass').innerHTML = createTable(newArray);
     console.log('This is new array');
     console.log(newArray);
  }
