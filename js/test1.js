@@ -10,6 +10,9 @@ var secondMax = 0;
 var thirdMax = 0;
 var fourthMax = 0;
 
+var counter1 = 0;
+var counter2 = 0;
+
 
 var newArray = [];
 
@@ -42,7 +45,7 @@ var student =  [
     {
         id : 4,
         name : 'Student4',
-        obMarks : 601,
+        obMarks : 401,
         tMarks : 1100,
         status : 'pass'
     },
@@ -65,7 +68,7 @@ var student =  [
     {
         id : 7,
         name : 'Student7',
-        obMarks : 600,
+        obMarks : 400,
         tMarks : 1100,
         status : 'fail'
     },
@@ -104,86 +107,86 @@ var student =  [
 
 console.log(student);
 
-function findMinMax (student) {
+// function findMinMax (student) {
 
-    var array = student.map((value) => {
+//     var array = student.map((value) => {
      
-        return value.obMarks;
-    });
-    // console.log('This is test 2 statement');
-    // console.log(array);
+//         return value.obMarks;
+//     });
+//     // console.log('This is test 2 statement');
+//     // console.log(array);
     
     
-    // console.log('The maximum numbers are');
+//     // console.log('The maximum numbers are');
   
    
     
   
     
-     for (let i = 0; i < array.length; i++) {
+//      for (let i = 0; i < array.length; i++) {
          
-         if(array[i] > max) {
-            fourthMax = thirdMax;
-             thirdMax= secondMax;
-             secondMax = max;
-             max = array[i];
-         }
-         else if (array[i] > secondMax && array[i] < max) {
-             secondMax = array[i];
-         }
-         else if (array[i] > thirdMax && array[i] < secondMax) {
-             thirdMax = array[i];
-         }
-         else if (array[i] > fourthMax && array[i] < thirdMax) {
-            fourthMax = array[i];
-        }
-     }
+//          if(array[i] > max) {
+//             fourthMax = thirdMax;
+//              thirdMax= secondMax;
+//              secondMax = max;
+//              max = array[i];
+//          }
+//          else if (array[i] > secondMax && array[i] < max) {
+//              secondMax = array[i];
+//          }
+//          else if (array[i] > thirdMax && array[i] < secondMax) {
+//              thirdMax = array[i];
+//          }
+//          else if (array[i] > fourthMax && array[i] < thirdMax) {
+//             fourthMax = array[i];
+//         }
+//      }
      
-     console.log('Finding Max numbers');
+//      console.log('Finding Max numbers');
 
-     console.log(max);
-     console.log(secondMax);
-     console.log(thirdMax);
-     console.log(fourthMax);
+//      console.log(max);
+//      console.log(secondMax);
+//      console.log(thirdMax);
+//      console.log(fourthMax);
     
     
     
-    //  console.log('The minimum numbers are');
+//     //  console.log('The minimum numbers are');
   
     
    
     
-     for (let i = 0; i < array.length; i++) {
+//      for (let i = 0; i < array.length; i++) {
          
-         if(array[i] < min) {
-            fourthMin = thirdMin;
-            thirdMin= secondMin;
-             secondMin = min;
-             min = array[i];
-         }
-         else if (array[i] < secondMin && array[i] > min) {
-            secondMin = array[i];
-         }
-         else if (array[i] < thirdMin && array[i] > secondMin) {
-            thirdMin = array[i];
-         }
-         else if (array[i] < fourthMin && array[i] > thirdMax) {
-            fourthMin = array[i];
-        }
-     }
+//          if(array[i] < min) {
+//             fourthMin = thirdMin;
+//             thirdMin= secondMin;
+//              secondMin = min;
+//              min = array[i];
+//          }
+//          else if (array[i] < secondMin && array[i] > min) {
+//             secondMin = array[i];
+//          }
+//          else if (array[i] < thirdMin && array[i] > secondMin) {
+//             thirdMin = array[i];
+//          }
+//          else if (array[i] < fourthMin && array[i] > thirdMax) {
+//             fourthMin = array[i];
+//         }
+//      }
      
-     console.log('Finding Minimum numbers');
+//      console.log('Finding Minimum numbers');
 
-     console.log(min);
-     console.log(secondMin);
-     console.log(thirdMin);
-     console.log(fourthMin);
+//      console.log(min);
+//      console.log(secondMin);
+//      console.log(thirdMin);
+//      console.log(fourthMin);
 
-}
+// }
 
 
 
-findMinMax(student);
+// findMinMax(student);
 
 
 
@@ -204,13 +207,30 @@ findMinMax(student);
 
         newArray = student.filter((value) => {
                 // console.log(value.obMarks === max);
-                if((value.obMarks === max && value.status === 'pass') || (value.obMarks === secondMax && value.status === 'pass')  || (value.obMarks === thirdMax && value.status === 'pass') || (value.obMarks === fourthMax && value.status === 'pass')){
-                       value.status = 'Top Achievers';
-                       return value; 
+                if((value.obMarks > 800 && value.obMarks <= 1100) && value.status === 'pass' ){
+                       counter1 += 1;
+                       if(counter1 <= 3) {
+                        value.status = 'Top Achievers';
+                        return value; 
+                       }
+                       else{
+                        value.status = 'Pass';
+                        return value;
+                       }
+                    
             
-                    }else if((value.obMarks === min && value.status === 'fail') || (value.obMarks === secondMin && value.status === 'fail') || (value.obMarks === thirdMax && value.status === 'fail') || (value.obMarks === fourthMin && value.status === 'fail')) {
+                    }else if((value.obMarks >= 0  && value.obMarks <= 500) && value.status === 'fail' ) {
+                        // counter2 += 1;
+                        // if(counter2 <= 3) {
+                        //     value.status = 'Fail';
+                        //     return value; 
+                        //    }
+                        //    else{
+                        //     value.status = 'Pass';
+                        //     return value;
+                        //    }
                         value.status = 'Fail';
-                       return value;
+                        return value;
                  }
                  else {
                     value.status = 'Pass';
